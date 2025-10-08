@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paristuan · Boutique Paris Travel Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="brand">
+          <span class="brand-mark">Paristuan</span>
+          <p class="brand-tagline">Curating intimate Parisian escapes</p>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#highlights">Experiences</a>
+          <a href="#itinerary">Planner</a>
+          <a href="#neighborhoods">Neighborhoods</a>
+          <a href="#insights">Insights</a>
+          <a class="cta" href="#contact">Plan your stay</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Tailored for the curious traveler</p>
+            <h1>Design a soulful Paris itinerary with handpicked experiences.</h1>
+            <p>
+              From hidden ateliers to candlelit bistros, Paristuan curates the
+              essence of Paris so you can savor every moment. Build your
+              itinerary, discover insider insights, and wander with confidence.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#itinerary">Start planning</a>
+              <button class="button ghost" type="button" id="surprise-me">
+                Surprise me
+              </button>
+            </div>
+          </div>
+          <figure class="hero-media">
+            <img
+              src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1350&q=80"
+              alt="Evening view of the Eiffel Tower over Paris rooftops"
+            />
+            <figcaption>
+              Capture the golden hour from Montmartre before a jazz soirée.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="highlights" class="section">
+        <div class="container section-heading">
+          <div>
+            <p class="eyebrow">Curated experiences</p>
+            <h2>Choose your vibe</h2>
+            <p>
+              Filter through our boutique selection to find the experiences that
+              resonate with your travel style. Add any idea directly to your
+              itinerary.
+            </p>
+          </div>
+          <div class="filters" role="group" aria-label="Experience filters">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="culture">Culture</button>
+            <button class="filter-button" data-filter="cuisine">Cuisine</button>
+            <button class="filter-button" data-filter="art">Art & Design</button>
+            <button class="filter-button" data-filter="nightlife">Nightlife</button>
+          </div>
+        </div>
+        <div class="container">
+          <div class="grid" id="experience-grid" aria-live="polite"></div>
+        </div>
+        <div class="container" id="experience-details" aria-live="polite"></div>
+      </section>
+
+      <section id="itinerary" class="section soft">
+        <div class="container section-heading">
+          <div>
+            <p class="eyebrow">Itinerary planner</p>
+            <h2>Shape your perfect day</h2>
+            <p>
+              Capture your must-do moments across the week. We will keep them in
+              order and ready for the journey.
+            </p>
+          </div>
+          <div class="planner-summary" id="planner-summary" aria-live="polite">
+            No plans yet—start dreaming!
+          </div>
+        </div>
+        <div class="container planner">
+          <form id="plan-form" class="plan-form" autocomplete="off">
+            <div class="field">
+              <label for="plan-day">Day</label>
+              <select id="plan-day" name="day" required>
+                <option value="">Select</option>
+                <option value="1">Day 1</option>
+                <option value="2">Day 2</option>
+                <option value="3">Day 3</option>
+                <option value="4">Day 4</option>
+                <option value="5">Day 5</option>
+                <option value="6">Day 6</option>
+                <option value="7">Day 7</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="plan-time">Time</label>
+              <input id="plan-time" name="time" type="time" required />
+            </div>
+            <div class="field field-wide">
+              <label for="plan-activity">Experience</label>
+              <input
+                id="plan-activity"
+                name="activity"
+                type="text"
+                placeholder="Ex: Sunrise picnic at the Tuileries"
+                required
+              />
+            </div>
+            <button class="button primary" type="submit">Add to itinerary</button>
+          </form>
+
+          <div class="itinerary-list" aria-live="polite">
+            <ol id="itinerary-list" class="plans"></ol>
+            <p class="empty-state" id="itinerary-empty">Your itinerary is waiting for its first note.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="neighborhoods" class="section">
+        <div class="container section-heading">
+          <div>
+            <p class="eyebrow">Neighborhood spotlight</p>
+            <h2>Discover pockets of charm</h2>
+            <p>
+              Each arrondissement carries its own tempo. Tap through the
+              highlights to reveal the ambience that fits your stay.
+            </p>
+          </div>
+        </div>
+        <div class="container">
+          <div class="grid" id="neighborhood-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="insights" class="section soft">
+        <div class="container section-heading">
+          <div>
+            <p class="eyebrow">Local insights</p>
+            <h2>Before you wander</h2>
+            <p>
+              Practical advice gathered from locals to keep your Paris adventure
+              seamless.
+            </p>
+          </div>
+        </div>
+        <div class="container tips-grid">
+          <article class="tip">
+            <h3>Reserve ahead</h3>
+            <p>
+              Boutique restaurants book quickly. Reserve dinner spots two weeks
+              out, especially for weekend evenings.
+            </p>
+          </article>
+          <article class="tip">
+            <h3>Embrace the tempo</h3>
+            <p>
+              Many shops pause midday. Plan cultural visits for mornings and
+              evenings, leaving afternoons for leisurely cafés.
+            </p>
+          </article>
+          <article class="tip">
+            <h3>Travel light</h3>
+            <p>
+              Parisian streets often include cobblestones and staircases. Opt for
+              a compact suitcase and comfortable footwear.
+            </p>
+          </article>
+          <article class="tip">
+            <h3>Mind the etiquette</h3>
+            <p>
+              Start every conversation with a warm “Bonjour” and keep voices at a
+              gentle tone in intimate venues.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container section-heading">
+          <div>
+            <p class="eyebrow">Concierge connection</p>
+            <h2>Craft something unforgettable</h2>
+            <p>
+              Tell us the mood of your trip and we will send a bespoke
+              collection of recommendations.
+            </p>
+          </div>
+        </div>
+        <div class="container contact-card">
+          <form class="contact-form">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Camille" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Trip vibe
+              <select name="vibe">
+                <option value="romance">Romantic escape</option>
+                <option value="culture">Culture & history</option>
+                <option value="food">Culinary adventures</option>
+                <option value="fashion">Fashion-forward</option>
+              </select>
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="4" placeholder="Share your dream moments..."></textarea>
+            </label>
+            <button class="button primary" type="submit">Request curation</button>
+          </form>
+          <aside class="contact-aside">
+            <h3>Included concierge perks</h3>
+            <ul>
+              <li>Tailored itinerary PDF</li>
+              <li>Restaurant reservation support</li>
+              <li>Exclusive atelier introductions</li>
+              <li>Insider-only evening salon invites</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <span class="brand-mark">Paristuan</span>
+          <p>Crafted with amour for discerning explorers.</p>
+        </div>
+        <div>
+          <h4>Stay inspired</h4>
+          <form class="newsletter-form">
+            <label class="sr-only" for="newsletter-email">Email</label>
+            <input
+              id="newsletter-email"
+              type="email"
+              name="email"
+              placeholder="bonjour@example.com"
+            />
+            <button class="button ghost" type="submit">Join</button>
+          </form>
+        </div>
+        <div>
+          <h4>Follow the journey</h4>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Spotify playlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note">© <span id="year"></span> Paristuan. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
